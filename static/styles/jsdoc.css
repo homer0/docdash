@@ -79,7 +79,6 @@ h3 {
 h4 {
   font-size: 18px;
   margin: 1em 0 .2em;
-  color: #4d4e53;
 }
 
 h4.name {
@@ -115,42 +114,42 @@ h6 {
 
 .usertext h1 {
   font-family: "Source Sans Pro";
-  font-size: 24px;
+  font-size: 32px;
   margin: 2.5em 0 1em;
   font-weight: 400;
 }
 
 .usertext h2 {
   font-family: "Source Sans Pro";
-  font-size: 18px;
-  margin: 2em 0 0.5em;
+  font-size: 24px;
+  margin: 1em 0 0.5em;
   font-weight: 400;
 
 }
 
 .usertext h3 {
   font-family: "Source Sans Pro";
-  font-size: 15px;
+  font-size: 20px;
   margin: 1.5em 0 0;
   font-weight: 400;
 }
 
 .usertext h4 {
   font-family: "Source Sans Pro";
-  font-size: 14px;
+  font-size: 16px;
   margin: 0 0 0;
   font-weight: 400;
 }
 
 .usertext h5 {
-  font-size: 12px;
+  font-size: 14px;
   margin: 1em 0 0;
   font-weight: normal;
   color: #666;
 }
 
 .usertext h6 {
-  font-size: 11px;
+  font-size: 12px;
   margin: 1em 0 0;
   font-weight: normal;
   font-style: normal;
@@ -158,17 +157,21 @@ h6 {
 }
 
 
-tt, code, kbd, samp {
+code, tt, kbd, samp {
   font-family: Consolas, Monaco, 'Andale Mono', monospace;
-  background: #f4f4f4;
   padding: 3px 5px;
 }
 
-p code, td code, td.name code {
+code, p code, td code, td.name code {
   background-color: #282D30;
   color: #EB5757;
   font-size: 14px;
   border-radius: 3px;
+}
+
+a:hover code, a:focus code {
+  background-color: #30AADC;
+  color: #292d30;
 }
 
 .class-description {
@@ -213,6 +216,7 @@ section > header > h2:first-child + div > p:first-child {
   color: #eee;
   font-style: italic;
   font-weight: lighter;
+  padding-left: 2px;
 }
 
 body > nav {
@@ -290,12 +294,16 @@ nav > ul > li > a {
 
 nav ul ul a {
   color: hsl(207, 1%, 60%);
-  border-left: 1px solid hsl(207, 10%, 86%);
+  border-left: 2px solid #272B2E;
+}
+
+nav ul ul a:first-child {
+  margin-top: 4px;
 }
 
 nav ul ul a,
 nav ul ul a:active {
-  padding-left: 20px
+  padding: 3px 0 2px 10px;
 }
 
 nav h2 {
@@ -339,8 +347,8 @@ footer {
   text-indent: -1000px
 }
 
-.type-signature {
-  color: #CA79CA
+.type-signature, h4.name a {
+  color: #30AADC
 }
 
 .type-signature:last-child {
@@ -422,14 +430,14 @@ footer {
   width: inherit;
   line-height: 18px;
   display: block;
-  background-color: #0d152a;
+  background-color: #282D30;
   color: #aeaeae;
 }
 
 .prettyprint code {
   line-height: 18px;
   display: block;
-  background-color: #0d152a;
+  background-color: #282D30;
   color: #4D4E53;
 }
 
@@ -562,6 +570,10 @@ span.param-type, .params td .param-type, .param-type dd {
 /* navicon button */
 .navicon-button {
   display: none;
+  background-color: #272B2E;
+  box-shadow: 0 .25em .5em rgba(0, 0, 0, .2);
+  border: 1px solid #24292C;
+  border-radius: 3px;
   position: relative;
   padding: 2.0625rem 1.5rem;
   transition: 0.25s;
@@ -594,7 +606,7 @@ span.param-type, .params td .param-type, .param-type dd {
   position: relative;
   width: 2.5em;
   height: .3125rem;
-  background: #000;
+  background: #EAEBEB;
   transition: 0.3s;
   border-radius: 2.5rem;
 }
@@ -603,7 +615,7 @@ span.param-type, .params td .param-type, .param-type dd {
   content: "";
   height: .3125rem;
   width: 2.5rem;
-  background: #000;
+  background: #EAEBEB;
   position: absolute;
   z-index: -1;
   transition: 0.3s 0.25s;
@@ -693,10 +705,22 @@ html[data-search-mode] .level-hide {
   display: block;
 }
 
+/* extras */
+
+.tutorial > h1:first-child {
+  display: none;
+}
+
+a.home-link {
+  font-weight: bold;
+  font-size: 15px;
+}
+
 
 @media only screen and (max-width: 680px) {
   body {
     overflow-x: hidden;
+    padding: 0 20px;
   }
 
   nav {
@@ -717,7 +741,7 @@ html[data-search-mode] .level-hide {
     display: inline-block;
     position: fixed;
     top: 1.5em;
-    right: 0;
+    right: 1.5em;
     z-index: 2;
   }
 
