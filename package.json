@@ -13,9 +13,9 @@
     "url": "https://github.com/clenemt/docdash.git"
   },
   "devDependencies": {
-    "jsdoc": "latest",
-    "browser-sync": "latest",
-    "watch-run": "latest"
+    "jsdoc": "^3.6.4",
+    "browser-sync": "^2.26.7",
+    "watch-run": "^1.2.5"
   },
   "author": "Clement Moron <clement.moron@gmail.com>",
   "license": "Apache-2.0",
