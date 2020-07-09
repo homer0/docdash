@@ -1,3 +1,5 @@
+> This is a fork of [clenemt/docdash](https://github.com/clenemt/docdash) to temporarily use in my projects.
+
 # Docdash
 [![Build Status](https://api.travis-ci.org/clenemt/docdash.png?branch=master)](https://travis-ci.org/clenemt/docdash) [![npm version](https://badge.fury.io/js/docdash.svg)](https://badge.fury.io/js/docdash) [![license](https://img.shields.io/npm/l/docdash.svg)](LICENSE.md)
 
@@ -125,7 +127,7 @@ Docdash supports the following options:
         },
         scopeInOutputPath: [false|true], // Add scope from package file (if present) to the output path, true by default.
         nameInOutputPath: [false|true], // Add name from package file to the output path, true by default.
-        versionInOutputPath: [false|true] // Add package version to the output path, true by default. 
+        versionInOutputPath: [false|true] // Add package version to the output path, true by default.
     }
 }
 ```
