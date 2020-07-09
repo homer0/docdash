@@ -46,7 +46,7 @@
 			"description": "A clean, responsive documentation template theme for JSDoc 3.",
 			"keyword": "jsdoc, docdash"
 		},
-        "search": true,
+        "search": false,
         "collapse": true,
         "typedefs": true,
         "removeQuotes": "none",
