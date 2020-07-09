@@ -10,13 +10,28 @@ var taffy = require('taffydb').taffy;
 var template = require('jsdoc/template');
 var util = require('util');
 
+
+var data;
+
 var htmlsafe = helper.htmlsafe;
-var linkto = helper.linkto;
+var linkto = (...args) => {
+    let results = helper.linkto(...args);
+    return results.replace(
+        /href="external-(.*?)\.html"/ig,
+        (fullMatch, name) => {
+            const external = data({ kind: 'external' , name }).first();
+            if (external && external.see && external.see.length) {
+                const [url] = external.see;
+                return ` target="_blank" href="${url}"`;
+            }
+            return fullMatch;
+        }
+    );
+};
 var resolveAuthorLinks = helper.resolveAuthorLinks;
 var scopeToPunc = helper.scopeToPunc;
 var hasOwnProp = Object.prototype.hasOwnProperty;
 
-var data;
 var view;
 
 var outdir = path.normalize(env.opts.destination);
@@ -758,11 +773,6 @@ exports.publish = function(taffyData, opts, tutorials) {
         var myMixins = helper.find(mixins, {longname: longname});
         if (myMixins.length) {
             generate('Mixin', myMixins[0].name, myMixins, helper.longnameToUrl[longname]);
-        }
-
-        var myExternals = helper.find(externals, {longname: longname});
-        if (myExternals.length) {
-            generate('External', myExternals[0].name, myExternals, helper.longnameToUrl[longname]);
         }
 
         var myInterfaces = helper.find(interfaces, {longname: longname});
