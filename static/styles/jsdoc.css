@@ -169,6 +169,10 @@ code, p code, td code, td.name code {
   border-radius: 3px;
 }
 
+a code {
+  color: #30AADC;
+}
+
 a:hover code, a:focus code {
   background-color: #30AADC;
   color: #292d30;
@@ -709,6 +713,12 @@ html[data-search-mode] .level-hide {
 
 .tutorial > h1:first-child {
   display: none;
+}
+
+.tutorial blockquote {
+  border-left: 4px solid #272B2E;
+  margin-left: 0;
+  padding-left: 20px;
 }
 
 a.home-link {
