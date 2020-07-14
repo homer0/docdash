@@ -251,9 +251,21 @@ function getPathFromDoclet(doclet) {
         doclet.meta.filename;
 }
 
+function replaceDocLinks(code) {
+    return code.replace(/(\shref=)"(\.\.?\/(?:[^"]+)\.md)"/ig, (match, before, filepath) => {
+        const tutorialUrl = helper.tutorialToUrl(path.parse(filepath).name);
+        return tutorialUrl ?
+            `${before}"${tutorialUrl}"` :
+            match;
+    });
+}
+
 function generate(type, title, docs, filename, resolveLinks) {
     resolveLinks = resolveLinks === false ? false : true;
-
+    const readmeIndex = docs.findIndex((doc) => !!doc.readme);
+    if (readmeIndex > -1) {
+        docs[readmeIndex].readme = replaceDocLinks(docs[readmeIndex].readme);
+    }
     var docData = {
         type: type,
         title: title,
@@ -262,6 +274,7 @@ function generate(type, title, docs, filename, resolveLinks) {
 
     var outpath = path.join(outdir, filename),
         html = view.render('container.tmpl', docData);
+
 
     if (resolveLinks) {
         html = helper.resolveLinks(html); // turn {@link foo} into <a href="foodoc.html">foo</a>
@@ -786,7 +799,7 @@ exports.publish = function(taffyData, opts, tutorials) {
         var tutorialData = {
             title: title,
             header: tutorial.title,
-            content: tutorial.parse(),
+            content: replaceDocLinks(tutorial.parse()),
             children: tutorial.children
         };
 
