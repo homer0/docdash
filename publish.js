@@ -459,6 +459,21 @@ function buildNav(members) {
     var nav = `<h2><a href="index.html" class="home-link">${homeTitle}</a></h2>`;
     var seen = {};
     var seenTutorials = {};
+    if (docdash.refLinks && docdash.refLinks.length) {
+        nav += '<ul class="ref-links">';
+        nav += docdash.refLinks
+        .map((lnk) => `
+            <li><a
+                class="ref-link -${lnk.type}"
+                title="${lnk.title}"
+                href="${lnk.url}"
+                target="_blank"
+            >${lnk.title}</a></li>
+        `)
+        .join('\n');
+        nav += '</ul>';
+    }
+
     if(docdash.menu){
         for(var menu in docdash.menu){
             nav += '<h2><a ';
