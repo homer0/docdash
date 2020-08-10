@@ -715,7 +715,7 @@ html[data-search-mode] .level-hide {
   display: none;
 }
 
-.tutorial blockquote {
+.tutorial blockquote, .readme blockquote {
   border-left: 4px solid #272B2E;
   margin-left: 0;
   padding-left: 20px;
