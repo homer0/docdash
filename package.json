@@ -1,6 +1,6 @@
 {
   "name": "docdash",
-  "version": "1.0.0",
+  "version": "2.1.0",
   "description": "A fork of clenemt/docdash to temporarily use in my projects",
   "main": "publish.js",
   "scripts": {
